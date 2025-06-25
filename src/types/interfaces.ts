@@ -1,4 +1,8 @@
 export interface BaseMovieProps {
+    genres: {
+      id: number;
+      name: string;
+    }[];
     movies: BaseMovieProps[];
     title: string;
     budget: number;
