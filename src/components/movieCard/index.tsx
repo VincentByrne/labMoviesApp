@@ -11,7 +11,7 @@ import CalendarIcon from "@mui/icons-material/CalendarTodayTwoTone";
 import StarRateIcon from "@mui/icons-material/StarRate";
 import Grid from "@mui/material/Grid";
 import IconButton from "@mui/material/IconButton";
-import img from '../../images/film-poster-placeholder.png';
+import img from '../../images/film-poster-placeholder.png'; 
 import { BaseMovieProps } from "../../types/interfaces"; 
 
 const styles = {

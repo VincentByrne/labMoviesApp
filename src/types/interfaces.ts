@@ -1,4 +1,5 @@
 export interface BaseMovieProps {
+    movies: BaseMovieProps[];
     title: string;
     budget: number;
     homepage: string | undefined;
