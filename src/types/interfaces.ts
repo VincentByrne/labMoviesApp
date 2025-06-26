@@ -1,4 +1,8 @@
 export interface BaseMovieProps {
+    production_countries: {
+      iso_3166_1: string;
+      name: string
+    }[];
     genres: {
       id: number;
       name: string;

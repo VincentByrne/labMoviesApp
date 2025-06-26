@@ -44,6 +44,7 @@ const MovieDetails: React.FC<MovieDetailsProps> = (movie) => {
                     </li>
                 ))}
             </Paper>
+
             <Paper component="ul" sx={styles.chipSet}>
                 <Chip icon={<AccessTimeIcon />} label={`${movie.runtime} min.`} />
                 <Chip
@@ -56,6 +57,18 @@ const MovieDetails: React.FC<MovieDetailsProps> = (movie) => {
                 />
                 <Chip label={`Released: ${movie.release_date}`} />
             </Paper>
+
+            <Paper component="ul" sx={styles.chipSet}>
+                    <li>
+                        <Chip label="Production Countries" sx={styles.chipLabel} color="primary" />
+                    </li>
+                    {movie.production_countries.map((c) => (
+                        <li key={c.iso_3166_1}>
+                            <Chip label={c.name} />
+                        </li>
+                    ))}
+            </Paper>
+
         </>
     );
 };
