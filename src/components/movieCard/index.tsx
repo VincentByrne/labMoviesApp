@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -57,7 +58,11 @@ const MovieCard: React.FC<BaseMovieProps> = (movie) => {
           <FavoriteIcon color="primary" fontSize="large" />
         </IconButton>
         <Button variant="outlined" size="medium" color="primary">
-          More Info ...
+          <Link to={`/movies/${movie.id}`}>
+          <Button variant="outlined" size="medium" color="primary">
+            More Info ...
+          </Button>
+          </Link>
         </Button>
       </CardActions>
     </Card>
