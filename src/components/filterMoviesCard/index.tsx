@@ -1,6 +1,7 @@
 import React, { useState, useEffect, ChangeEvent } from "react";
 import { FilterOption } from "../../types/interfaces"
 import { SelectChangeEvent } from "@mui/material";import Card from "@mui/material/Card";
+import { getGenres } from "../../api/tmdb-api";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import InputLabel from "@mui/material/InputLabel";
@@ -10,6 +11,7 @@ import FilterAltIcon from '@mui/icons-material/FilterAlt';
 import SortIcon from '@mui/icons-material/Sort';
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
+
 
 const styles = {
   root: {
@@ -35,18 +37,11 @@ const FilterMoviesCard: React.FC<FilterMoviesCardProps> = ({ titleFilter, genreF
   const [genres, setGenres] = useState([{ id: '0', name: "All" }])
 
   useEffect(() => {
-    fetch(
-      `https://api.themoviedb.org/3/genre/movie/list?api_key=${import.meta.env.VITE_TMDB_KEY}`
-    )
-      .then(res => res.json())
-      .then(json => {
-        return json.genres
-      })
-      .then(apiGenres => {
-        setGenres([genres[0], ...apiGenres]);
-      });
+    getGenres().then((allGenres) => {
+      setGenres([genres[0], ...allGenres]);
+    });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [])
 
   const handleChange = (e: SelectChangeEvent, type: FilterOption, value: string) => {
         e.preventDefault()
