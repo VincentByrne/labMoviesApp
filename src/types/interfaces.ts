@@ -51,10 +51,12 @@ export interface MovieListPageTemplateProps extends BaseMovieListProps {
   title: string;
 }
 
-  export interface Review{
-    id: string;
-    content: string
-    author: string
+   export interface Review {
+    author: string,
+    content: string,
+    agree: boolean,
+    rating: number,
+    movieId: number,
   }
 
 
