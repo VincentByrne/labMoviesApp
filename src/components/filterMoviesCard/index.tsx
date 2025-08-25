@@ -1,7 +1,9 @@
-import React, { useState, useEffect, ChangeEvent } from "react";
-import { FilterOption } from "../../types/interfaces"
+import React, {  ChangeEvent } from "react";
+import { FilterOption, GenreData } from "../../types/interfaces"; //include GenreData interface 
 import { SelectChangeEvent } from "@mui/material";import Card from "@mui/material/Card";
 import { getGenres } from "../../api/tmdb-api";
+import { useQuery } from "react-query";
+import Spinner from '../spinner';
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import InputLabel from "@mui/material/InputLabel";
@@ -34,18 +36,22 @@ const styles = {
 }
 
 const FilterMoviesCard: React.FC<FilterMoviesCardProps> = ({ titleFilter, genreFilter, onUserInput }) => {
-  const [genres, setGenres] = useState([{ id: '0', name: "All" }])
+  const { data, error, isLoading, isError } = useQuery<GenreData, Error>("genres", getGenres);
 
-  useEffect(() => {
-    getGenres().then((allGenres) => {
-      setGenres([genres[0], ...allGenres]);
-    });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  if (isLoading) {
+    return <Spinner />;
+  }
+  if (isError) {
+    return <h1>{(error as Error).message}</h1>;
+  }
+  const genres = data?.genres || [];
+  if (genres[0].name !== "All") {
+    genres.unshift({ id: "0", name: "All" });
+  }
 
   const handleChange = (e: SelectChangeEvent, type: FilterOption, value: string) => {
-        e.preventDefault()
-        onUserInput(type, value)
+    e.preventDefault()
+      onUserInput(type, value)
   };
 
   const handleTextChange = (e: ChangeEvent<HTMLInputElement>) => {
