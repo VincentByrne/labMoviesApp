@@ -7,7 +7,7 @@ import { useQuery } from "react-query";
 import Spinner from "../components/spinner";
 import AddToPlaylistIcon from '../components/cardIcons/addToPlaylist';  // CHANGED
 
-const UpcomingMoviesPage: React.FC = () => {
+const UpcomingMoviesPage: React.FC = () => { //usse catching implemented ex1
   const { data, error, isLoading, isError } = useQuery<DiscoverMovies, Error>(
     "upcoming", 
     getUpcomingMovies
