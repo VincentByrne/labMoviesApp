@@ -9,6 +9,7 @@ import CardHeader from "@mui/material/CardHeader";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import FavoriteIcon from "@mui/icons-material/Favorite";
+import PlaylistAddIcon from "@mui/icons-material/PlaylistAdd";
 import CalendarIcon from "@mui/icons-material/CalendarTodayTwoTone";
 import StarRateIcon from "@mui/icons-material/StarRate";
 import Grid from "@mui/material/Grid";
@@ -19,8 +20,11 @@ import { MoviesContext } from "../../contexts/moviesContext";
 const styles = {
   card: { maxWidth: 345 },
   media: { height: 500 },
-  avatar: {
+  favouriteAvatar: {  // rename to differentiate 
     backgroundColor: "rgb(255, 0, 0)",
+  },
+  playlistAvatar: {
+    backgroundColor: "rgb(0, 0, 255)",
   },
 };
 
@@ -30,18 +34,22 @@ interface MovieCardProps {
 }
 
 const MovieCard: React.FC<MovieCardProps> = ({movie, action}) => {
-  const { favourites, addToFavourites } = useContext(MoviesContext);//NEW
+  const { favourites, mustWatch } = useContext(MoviesContext);//add mustWatch
 
 const isFavourite = favourites.find((id) => id === movie.id)? true : false;//NEW
- 
+const isMustWatch = mustWatch.find((id) => id === movie.id) ? true : false;
 
   return (
       <Card sx={styles.card}>
       <CardHeader
         avatar={
-          isFavourite ? (   //CHANGED
-            <Avatar sx={styles.avatar}>
+          isFavourite ? (   
+            <Avatar sx={styles.favouriteAvatar}>
               <FavoriteIcon />
+            </Avatar>
+          ) :isMustWatch ? ( 
+            <Avatar sx={styles.playlistAvatar}>
+              <PlaylistAddIcon />
             </Avatar>
           ) : null
         }

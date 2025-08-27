@@ -9,7 +9,7 @@ const AddToPlaylistIcon: React.FC<BaseMovieProps> = (movie) => {
 
   const onUserSelect = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    // context.addToMustWatch(movie)
+    context.addToMustWatch(movie)
   };
 
   return (
