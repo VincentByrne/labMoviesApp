@@ -104,7 +104,39 @@
     .catch((error) => {
       throw error;
     });
-};
+  };
+
+  export const getActor = (id: string) => {
+    return fetch(
+    `https://api.themoviedb.org/3/person/${id}?api_key=${import.meta.env.VITE_TMDB_KEY}`
+  )
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`Unable to fetch Actor data. Response status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .catch((error) => {
+      throw error;
+    });
+  };
+
+  export const getActorMovieCredits = (id: string) => {
+  return fetch(
+    `https://api.themoviedb.org/3/person/${id}/movie_credits?api_key=${import.meta.env.VITE_TMDB_KEY}`
+  )
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`Unable to fetch Actor movie credits. Response status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .catch((error) => {
+      throw error;
+    });
+  };
+
+
 
 
 
