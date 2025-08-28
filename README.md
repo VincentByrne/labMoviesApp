@@ -46,6 +46,7 @@ React application for browsing, reviewing and searching for movies. Ues the TMDB
 *Favorites Page*: View and manage your favorite movies
 *Upcoming Movies Page*: View movies that are soon to be released. 
 *Popular Movies Page**: Browse movies that are currently popular
+*Top Rated Movies Page*: View highest rated movies on TMDB
 *Add Review Page**: Write reviews for movies that you have added to your favourites list. 
 
 ## Technical Stack
