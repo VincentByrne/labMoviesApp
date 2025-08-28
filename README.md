@@ -28,3 +28,38 @@ export default {
 - Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
 - Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
 - Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+
+
+# Movies app
+React application for browsing, reviewing and searching for movies. Ues the TMDB API. Built with React TypeScript and Vite. 
+
+# Functionality 
+*Browse movies*: Browse and discover the latest movies. 
+*Review details*: View information about each movie including runtime, review score, and genre. 
+*Favourites*: ability to tag and track your favourite movies. 
+*Must Watch*: Create a playlist of upcoming movies. 
+*Filtering*: Filter movies by title and genre.
+
+# Pages
+*Home Page*: Browse and discover movies on the landing page. 
+*Movie Details Page*: Review specific information on each movie
+*Favorites Page*: View and manage your favorite movies
+*Upcoming Movies Page*: View movies that are soon to be released. 
+*Popular Movies Page**: Browse movies that are currently popular
+*Add Review Page**: Write reviews for movies that you have added to your favourites list. 
+
+## Technical Stack
+- **React 18** with TypeScript
+- **Vite** for fast development and building
+- **React Query** for server state management and caching
+- **React Router** for navigation
+- **Material UI** for component styling
+- **React Hook Form** for form handling
+- **Context API** for global state management
+- **Storybook** for component documentation
+
+### Installation
+1. Clone the repository
+2. Install dependencies:
+   ```bash
+   npm install
