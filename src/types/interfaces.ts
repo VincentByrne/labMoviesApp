@@ -42,6 +42,11 @@ export interface MoviePageProps {
   images: MovieImage[];
 }
 
+export interface BaseActorListProps {
+  actors: ActorDetails[];
+  action: (a: ActorDetails) => React.ReactNode;
+}
+
 export interface BaseMovieListProps {
   movies: BaseMovieProps[];
   action: (m: BaseMovieProps) => React.ReactNode;
@@ -49,6 +54,12 @@ export interface BaseMovieListProps {
 
 export interface MovieListPageTemplateProps extends BaseMovieListProps {
   title: string;
+}
+
+export interface ActorListPageTemplateProps {
+  title: string;
+  actors: ActorDetails[];
+  action: (a: ActorDetails) => React.ReactNode;
 }
 
    export interface Review {
