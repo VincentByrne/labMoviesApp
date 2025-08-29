@@ -9,12 +9,12 @@ import CardHeader from "@mui/material/CardHeader";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-import PlaylistAddIcon from "@mui/icons-material/PlaylistAdd";
-import CalendarIcon from "@mui/icons-material/CalendarTodayTwoTone";
+//import CalendarIcon from "@mui/icons-material/CalendarTodayTwoTone";
 import StarRateIcon from "@mui/icons-material/StarRate";
 import Grid from "@mui/material/Grid";
-import img from '../../images/film-poster-placeholder.png'; 
-import { BaseMovieProps } from "../../types/interfaces"; 
+import img from '../../images/film-poster-placeholder.png';
+import MaleIcon from "@mui/icons-material/Male";
+import FemaleIcon from "@mui/icons-material/Female";
 import { MoviesContext } from "../../contexts/moviesContext";
 import { ActorDetails } from "../../types/interfaces"; 
 
@@ -25,6 +25,15 @@ const styles = {
   favouriteAvatar: {
     backgroundColor: "rgb(255, 0, 0)",
   },
+};
+
+const getGenderInfo = (gender: number) => {
+  switch (gender) {
+    case 1: return { label: "Female", icon: <FemaleIcon fontSize="small" /> };
+    case 2: return { label: "Male", icon: <MaleIcon fontSize="small" /> };
+    case 3: return "Non-binary";
+    default: return "Unknown";
+  }
 };
 
 interface ActorCardProps {
@@ -65,14 +74,14 @@ const ActorCard: React.FC<ActorCardProps> = ({ actor, action }) => {
         <Grid container>
           <Grid item xs={6}>
             <Typography variant="h6" component="p">
-              <CalendarIcon fontSize="small" />
-              {actor.birthday || "Unknown"}
+              {getGenderInfo(actor.gender).icon}
+              {getGenderInfo(actor.gender).label}
             </Typography>
           </Grid>
           <Grid item xs={6}>
             <Typography variant="h6" component="p">
               <StarRateIcon fontSize="small" />
-              {"  "} {actor.popularity?.toFixed(1)}{" "}
+              {"  "} {actor.popularity }{" "}
             </Typography>
           </Grid>
         </Grid>

@@ -76,6 +76,7 @@ export type FilterOption = "title" | "genre";
 export interface ActorDetails {
   id: number;
   name: string;
+  gender: number; //getPopularActors() api uses number for gender.
   biography: string;
   birthday: string;
   detahday: string | null;
