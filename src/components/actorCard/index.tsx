@@ -16,11 +16,13 @@ import Grid from "@mui/material/Grid";
 import img from '../../images/film-poster-placeholder.png'; 
 import { BaseMovieProps } from "../../types/interfaces"; 
 import { MoviesContext } from "../../contexts/moviesContext";
+import { ActorDetails } from "../../types/interfaces"; 
+
 
 const styles = {
   card: { maxWidth: 345 },
   media: { height: 500 },
-  avatar: {
+  favouriteAvatar: {
     backgroundColor: "rgb(255, 0, 0)",
   },
 };
@@ -31,9 +33,20 @@ interface ActorCardProps {
 }
 
 const ActorCard: React.FC<ActorCardProps> = ({ actor, action }) => {
+  const { favouriteActors } = useContext(MoviesContext);
+
+  const isFavourite = favouriteActors.find((id) => id === actor.id) ? true : false;  //NEw
+
   return (
     <Card sx={styles.card}>
       <CardHeader
+        avatar={
+           isFavourite ? (   
+            <Avatar sx={styles.favouriteAvatar}>
+              <FavoriteIcon />
+            </Avatar>
+          ) :null
+        }
         title={
           <Typography variant="h5" component="p">
             {actor.name}
