@@ -8,6 +8,7 @@ interface MovieContextInterface {
     addToFavourites: ((movie: BaseMovieProps) => void);
     addToFavouriteActors: ((actor: ActorDetails) => void);  // NEW
     removeFromFavourites: ((movie: BaseMovieProps) => void);
+    removeFromFavouriteActors: ((actor: ActorDetails) => void); 
     addToMustWatch: ((movie: BaseMovieProps) => void);  
     addReview: ((movie: BaseMovieProps, review: Review) => void);  
 }
@@ -18,6 +19,7 @@ const initialContextState: MovieContextInterface = {
     addToFavourites: () => {},
     addToFavouriteActors: () => {},  // NEW
     removeFromFavourites: () => {},
+    removeFromFavouriteActors: () => {},
     addToMustWatch: () => {},  
     addReview: (movie, review) => { movie.id, review},
 };
@@ -52,6 +54,10 @@ const MoviesContextProvider: React.FC<React.PropsWithChildren> = ({ children }) 
         setFavourites((prevFavourites) => prevFavourites.filter((mId) => mId !== movie.id));
     }, []);
 
+    const removeFromFavouriteActors = useCallback((actor: ActorDetails) => {  // ADD THIS FUNCTION
+        setFavouriteActors((prevFavourites) => prevFavourites.filter((aId) => aId !== actor.id));
+    }, []);
+
     const addReview = (movie:BaseMovieProps, review: Review) => {  
         setMyReviews( {...myReviews, [movie.id]: review } )
       };
@@ -74,6 +80,7 @@ const MoviesContextProvider: React.FC<React.PropsWithChildren> = ({ children }) 
                 addToFavourites,
                 addToFavouriteActors,  // NEW
                 removeFromFavourites,
+                removeFromFavouriteActors,
                 addReview,
                 mustWatch,
                 addToMustWatch,

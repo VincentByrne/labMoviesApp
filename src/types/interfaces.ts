@@ -71,7 +71,7 @@ export interface ActorListPageTemplateProps {
   }
 
 
-export type FilterOption = "title" | "genre";
+export type FilterOption = "title" | "genre" | "name" | "gender"; //included new filters
 
 export interface ActorDetails {
   id: number;

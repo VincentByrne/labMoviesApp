@@ -15,6 +15,7 @@ import Grid from "@mui/material/Grid";
 import img from '../../images/film-poster-placeholder.png';
 import MaleIcon from "@mui/icons-material/Male";
 import FemaleIcon from "@mui/icons-material/Female";
+import TransgenderIcon from "@mui/icons-material/Transgender";
 import { MoviesContext } from "../../contexts/moviesContext";
 import { ActorDetails } from "../../types/interfaces"; 
 
@@ -31,8 +32,8 @@ const getGenderInfo = (gender: number) => {
   switch (gender) {
     case 1: return { label: "Female", icon: <FemaleIcon fontSize="small" /> };
     case 2: return { label: "Male", icon: <MaleIcon fontSize="small" /> };
-    case 3: return "Non-binary";
-    default: return "Unknown";
+    case 3: return { label: "Non-binary", icon: <TransgenderIcon fontSize="small" /> };
+    default: return { label: "Unknown", icon: <StarRateIcon fontSize="small" /> };
   }
 };
 
