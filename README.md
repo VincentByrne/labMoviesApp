@@ -36,9 +36,10 @@ React application for browsing, reviewing and searching for movies. Ues the TMDB
 # Functionality 
 *Browse movies*: Browse and discover the latest movies. 
 *Review details*: View information about each movie including runtime, review score, and genre. 
-*Favourites*: ability to tag and track your favourite movies. 
+*Favourites*: ability to tag and track your favourite movies and actors. 
 *Must Watch*: Create a playlist of upcoming movies. 
-*Filtering*: Filter movies by title and genre.
+*Filtering*: Filter movies by title and genre. Actors by gender and name. 
+*Reviews*: Write and store views. 
 
 # Pages
 *Home Page*: Browse and discover movies on the landing page. 
@@ -48,7 +49,10 @@ React application for browsing, reviewing and searching for movies. Ues the TMDB
 *Popular Movies Page**: Browse movies that are currently popular
 *Top Rated Movies Page*: View highest rated movies on TMDB
 *Add Review Page**: Write reviews for movies that you have added to your favourites list.
-*Actor Details Page*: View actor biography and information - can't navgate yet. 
+*Actor Details Page*: View actor biography and information - can't navgate yet.
+*Actors/people page*: view a wide range of actors. 
+*Favouite actors page*: view a list of favourited actors 
+
 
 ## Technical Stack
 - **React 18** with TypeScript
