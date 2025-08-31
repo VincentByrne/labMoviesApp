@@ -30,10 +30,11 @@ const SiteHeader: React.FC = () => {
   const menuOptions = [
     { label: "Home", path: "/" },
     { label: "Movie Favorites", path: "/movies/favourites" },
-    { label: "Actor Favorites", path: "/actors/favourites" }, // split favourites to movies and actors
     { label: "Popular", path: "/movies/popular" },
     { label: "Top Rated", path: "/movies/top-rated" },
+    { label: "Upcoming", path: "/movies/upcoming"},
     { label: "Actors", path: "/actors" },  
+    { label: "Actor Favorites", path: "/actors/favourites" },
   ];
 
   const handleMenuSelect = (pageURL: string) => {
