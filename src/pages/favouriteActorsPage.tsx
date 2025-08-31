@@ -1,11 +1,10 @@
 import React, { useContext } from "react"
-import PageTemplate from "../components/templateMovieListPage";
+import PageTemplate from "../components/templateActorListPage";
 import { MoviesContext } from "../contexts/moviesContext";
 import { useQueries } from "react-query";
 import { getActor } from "../api/tmdb-api";
 import Spinner from "../components/spinner";
-import RemoveFromFavourites from "../components/cardIcons/removeFromFavourites";
-import WriteReview from "../components/cardIcons/writeReview";
+import RemoveFromFavouriteActors from "../components/cardIcons/removeFromFavouriteActors";
 
 
 const FavouriteActorsPage: React.FC = () => {
@@ -29,30 +28,16 @@ const FavouriteActorsPage: React.FC = () => {
     return <Spinner />;
   }
 
-  const allFavourites = favouriteActorQueries.map((q) => q.data).filter(Boolean);
-
-
-  return (
-    <>
-       <PageTemplate
-        title="Favourite Movies"
-        movies={displayedMovies}
-        action={(movie) => {
-          return (
-            <>
-              <RemoveFromFavourites {...movie} />
-              <WriteReview {...movie} />
-            </>
-          );
-        }}
-      />
-      <MovieFilterUI
-        onFilterValuesChange={changeFilterValues}
-        titleFilter={filterValues[0].value}
-        genreFilter={filterValues[1].value}
-      />
-    </>
+ const allFavourites = favouriteActorQueries.map((q) => q.data).filter(Boolean);
+return (
+    <PageTemplate
+      title="Favourite Actors"
+      actors={allFavourites}
+      action={(actor) => {
+        return <RemoveFromFavouriteActors {...actor} />;
+      }}
+    />
   );
 };
 
-export default FavouriteMoviesPage;
+export default FavouriteActorsPage;
